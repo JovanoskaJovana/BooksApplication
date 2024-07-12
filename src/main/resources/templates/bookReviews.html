@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reviews</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        main {
+            margin-top: 20px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: black;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #fff;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        span {
+            font-weight: bold;
+        }
+        button, a {
+            display: inline-block;
+            padding: 6px 12px;
+            font-size: 12px;
+            cursor: pointer;
+            background-color: antiquewhite; /* Green */
+            color: black;
+            border: none;
+            border-radius: 3px;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <h1>
+        Book reviews
+    </h1>
+</header>
+<main>
+    <h2>Reviews for <span th:text="${book.getTitle()}"></span></h2>
+    <form action="/review/{id}">
+        <ul>
+            <li th:each="review : ${reviews}">
+                <p>
+                    Review: <span th:text="${review.getScore()}"></span><br/>
+                    Description: <span th:text="${review.getDescription()}"></span><br/>
+                    Time: <span th:text="${review.getTimestamp()}"></span>
+                    <!--"'/products/edit/'+${product.getId()}"-->
+                    <a th:href="'../addReview/'+${book.getId()}">Change the time</a>
+                </p>
+            </li>
+        </ul>
+    </form>
+
+</main>
+</body>
+</html>
