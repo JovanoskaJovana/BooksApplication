@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Filtered reviews</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        input {
+            margin-bottom: 10px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li th:each="review : ${reviews}">
+        <p>
+            Book Title: <span th:text="${review.book.getTitle()}"></span><br>
+            Review: <span th:text="${review.getScore()}"></span><br/>
+            Description: <span th:text="${review.getDescription()}"></span><br/>
+            Time: <span th:text="${review.getTimestamp()}"></span>
+        </p>
+    </li>
+</ul>
+<form method="post" action="/books/filter">
+    <input type="datetime-local" id="from" name="from"/>
+    <input type="datetime-local" id="to" name="to"/>
+    <input type="submit">
+</form>
+
+</body>
+</html>

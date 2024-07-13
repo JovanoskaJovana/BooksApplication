@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: jovanoskajovana/book-app:latest
+    ports:
+      - "9090:9090"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/book-store
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=wp123jj
+    depends_on:
+      - db
+
+  db:
+    image: "postgres"
+    container_name: db
+    environment:
+      - POSTGRES_DB=book-store
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=wp123jj
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
+
+
