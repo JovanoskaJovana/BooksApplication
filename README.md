@@ -41,7 +41,7 @@ The GitHub Actions workflow is set up to automatically build the Docker image an
 
 ## Kubernetes Deployment
 
-  **Kubernetes** To deploy the application:
+1. **Kubernetes** To deploy the application:
 
 ```bash
 k3d cluster create bookstore-cluster -p '9090:9090@loadbalancer' --agents 2
