@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: bookapp-ingress
+  namespace: bookapp-namespace
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /books
+        pathType: Prefix
+        backend:
+          service:
+            name: bookapp-service
+            port:
+              number: 9090
