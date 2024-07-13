@@ -10,7 +10,7 @@ This repository contains the source code and configuration files for the applica
 6.  [Technologies Used](#technologies-used)
    
 ## Project Description
-This application functions as an online library and offers features like book management, creating copies of books and managing reviews for the same books. The application enables CRUD oprations on books which return server-rendered views. Additionally, it also enables actions to manage reviews for a particular book. It includes Docker setup, CI pipeline using GitHub Actions, and Kubernetes configuration for deployment. This project is made for the DevOps (KIII) course at FCSE. 
+This application functions as an online library and offers features like book management, creating copies of books and managing reviews for the same books. The application enables CRUD oprations on books which return server-rendered views. It includes Docker setup, CI pipeline using GitHub Actions, and Kubernetes configuration for deployment. This project is made for the DevOps (KIII) course at FCSE. 
 
 ## Prerequisites
 - Docker and Docker Compose
